@@ -1,0 +1,1 @@
+{"name":"Local: intern","url":"c:\\Users\\DELL\\OneDrive - IIT Kanpur\\Desktop\\Codes\\ESO207\\intern.cpp","tests":[{"id":1709038472617,"input":"8\n1 1 1 1 3 3 5 5\n3\n2 4 8\n3\n2 3 7","output":"2\n2\n8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\DELL\\OneDrive - IIT Kanpur\\Desktop\\Codes\\ESO207\\intern.cpp","group":"local","local":true}

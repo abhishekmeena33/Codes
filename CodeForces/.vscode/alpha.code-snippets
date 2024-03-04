@@ -1,0 +1,15 @@
+{
+	"Alphabet Count": {
+		"prefix": "alpha",
+		"body": [
+		  "int n; cin >> n;",
+		  "int s[26];",
+		  "for(auto i{0};i<26;i++) s[i]=0;",
+		  "for(int i=0;i<n;i++){",
+		  "    char c; cin >> c;",
+		  "    s[c-'a']++;",
+		  "}"
+		],
+		"description": "Alphabet Count"
+	  }
+}
