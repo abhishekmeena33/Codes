@@ -22,20 +22,13 @@ int digit_sum(int n) {
 
 int main(){
     FAST
-    int k; cin >> k;
+    ll k; cin >> k;
     
-    for(int i=1; i<=k; i++){
-        if(i==1){
-            cout <<"0";
-        }
-        else if(i==2){
-            cout <<"6";
-        }
-
-        else if(i==3){
-            cout << 4*(2 +(k-3)*3) 
-        }
-
-    }
+    cout << 0 << "\n";
+    for (ll n = 2; n <= k; n++) {
+        ll total = n*n*(n*n-1)/2;
+        ll attack = 4*(n-1)*(n-2);
+        cout << total - attack << "\n";
+    } 
     return 0;
 }
