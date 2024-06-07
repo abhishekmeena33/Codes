@@ -29,10 +29,31 @@ void solve(){
     string str;
     cin >> str;
 
-    if(str[0]>= 'a' && str[0]<='z') str[0]-=32;
+    bb hi =false;
+    bb bye = true;
+    bb all = true;
 
-    for(int i=1; i<str.size(); i++){
-        if(str[i]<='Z') str[i]+=32;
+    for(auto itr: str){
+        if(itr >= 'a') {all=false;break;}
+    }
+    if(all){
+        for(int i=0;i<str.size();i++){
+            str[i]+=32;
+        }
+        cout << str;
+        return;
+    }
+    if(str[0]>='a') hi = true;
+
+    for(int i=1;i<str.size();i++){
+        if(str[i]>='a') bye = false;
+    }
+
+    if(hi && bye){
+        str[0]-=32;
+        for(int i=1;i<str.size();i++){
+            str[i]+=32;
+        }
     }
     cout << str;
 }

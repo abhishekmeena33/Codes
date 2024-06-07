@@ -42,7 +42,7 @@
 			"    ",
 			"}",
 			"",
-			"int main(){",
+			"int32_t main(){",
 			"    FAST",
 			"    int t; cin >> t;",
 			"    while(t--){",
