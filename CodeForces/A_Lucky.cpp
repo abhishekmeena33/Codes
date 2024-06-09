@@ -7,7 +7,6 @@
 #include <bits/stdc++.h>
 #include <string>
 #include <set>
-
 using namespace std;
 #define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 #define ll long long
@@ -35,23 +34,21 @@ int digit_sum(int n) {
 /*===========================================================================================*/
 
 void solve(){
-    ll n, t;
-    
-    cin >> n >> t;
-    
-    ll mul=1;
-    // for(ll i = pow(10,n-1); i<pow(10,n-1) +10 ; i+=mul){
-    //     if(i%t==0){
-    //         cout << i;
-    //         return;
-    //     }
-    //     mul*=2;
-    // }
-    cout << "-1";
+    string str;
+    cin >> str;
+
+    ll sum1 = str[0]+str[1]+str[2];
+    ll sum2 = str[3] + str[4] + str[5];
+    if(sum1 == sum2){cout << "YES";}
+    else cout << "NO";
 }
 
-int main(){
+int32_t main(){
     FAST
-    solve();
+    int t; cin >> t;
+    while(t--){
+        solve();
+        cout <<"\n";
+    }
     return 0;
 }                          
