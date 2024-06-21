@@ -7,7 +7,6 @@
 #include <bits/stdc++.h>
 #include <string>
 #include <set>
-
 using namespace std;
 #define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 #define ll long long
@@ -26,38 +25,51 @@ using namespace std;
 
 int digit_sum(int n) {
     int sum = 0;
-    while (n>0) {
-        sum+=n%10;
-        n=n/10;
+    while (n > 0) {
+        sum += n % 10;
+        n = n / 10;
     }
     return sum;
 }
 /*===========================================================================================*/
 
-void solve(){
-    ll n, t;
-    
-    cin >> n >> t;
-    
-    if(t<10){
-        while(n--){
-            cout << t ;
-        }
-    }
-    else{
-        if(n==1){cout << "-1";}
-        else{
-            
-            for(int i=0;i<n-1;i++){
-                cout<< "1";
+void solve() {
+    int n, m;
+    cin >> n >> m;
+
+    vector<pair<int, int>> ans;
+
+    for (int i = 0; i < n; ++i) {
+        string row;
+        cin >> row;
+        for (int j = 0; j < m; ++j) {
+            if (row[j] == '#') {
+                ans.push_back({i + 1, j + 1});
             }
-            cout << "0";
         }
     }
+
+    ll sx = 0, sy = 0;
+    int count = ans.size();
+
+    for (const auto& pos : ans) {
+        sx += pos.first;
+        sy += pos.second;
+    }
+
+    int cx = (sx + count / 2) / count;
+    int cy = (sy + count / 2) / count;
+
+    cout << cx << " " << cy;
 }
 
-int main(){
+int32_t main() {
     FAST
-    solve();
+    int t; 
+    cin >> t;
+    while (t--) {
+        solve();
+        cout << "\n";
+    }
     return 0;
-}                          
+}

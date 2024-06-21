@@ -7,7 +7,6 @@
 #include <bits/stdc++.h>
 #include <string>
 #include <set>
-
 using namespace std;
 #define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 #define ll long long
@@ -23,6 +22,7 @@ using namespace std;
 #define all(x) x.begin(), x.end()
 #define scan(x,n) for(ll i = 0; i < n; i++) cin >> x[i];
 
+typedef pair<ll, ll> pll;
 
 int digit_sum(int n) {
     int sum = 0;
@@ -35,29 +35,52 @@ int digit_sum(int n) {
 /*===========================================================================================*/
 
 void solve(){
-    ll n, t;
-    
-    cin >> n >> t;
-    
-    if(t<10){
-        while(n--){
-            cout << t ;
-        }
+    ll h;
+    ll n;
+    cin >> h >> n;
+    vector<ll> a(n), c(n);
+    for (ll i = 0; i < n; ++i) {
+        cin >> a[i];
     }
-    else{
-        if(n==1){cout << "-1";}
-        else{
-            
-            for(int i=0;i<n-1;i++){
-                cout<< "1";
-            }
-            cout << "0";
-        }
+    
+    for (ll i = 0; i < n; ++i) {
+        cin >> c[i];
+        
     }
+    
+    
+    ll health = h;
+    ll turn = 0;
+
+    priority_queue<pll, vector<pll>, greater<pll>> pq;
+
+    for (ll i = 0; i < n; ++i) {
+        pq.push({1, i});
+    }
+    
+    while (h>0) {
+        turn = pq.top().first;
+
+        ll att = 0;
+        while (!pq.empty() && pq.top().first == turn) {
+            ll i = pq.top().second;
+            pq.pop();
+            att += a[i];
+            pq.push({turn + c[i], i});
+        }
+
+        h -= att;
+    }
+    cout << turn;
 }
 
 int main(){
     FAST
-    solve();
+    int t; cin >> t;
+    while(t--){
+        solve();
+        cout <<"\n";
+    }
     return 0;
-}                          
+}
+                        

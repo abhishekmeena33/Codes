@@ -7,7 +7,6 @@
 #include <bits/stdc++.h>
 #include <string>
 #include <set>
-
 using namespace std;
 #define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 #define ll long long
@@ -24,8 +23,8 @@ using namespace std;
 #define scan(x,n) for(ll i = 0; i < n; i++) cin >> x[i];
 
 
-int digit_sum(int n) {
-    int sum = 0;
+ll digit_sum(ll n) {
+    ll sum = 0;
     while (n>0) {
         sum+=n%10;
         n=n/10;
@@ -35,29 +34,56 @@ int digit_sum(int n) {
 /*===========================================================================================*/
 
 void solve(){
-    ll n, t;
-    
-    cin >> n >> t;
-    
-    if(t<10){
-        while(n--){
-            cout << t ;
-        }
+    ll n,k; cin >> n >> k;
+    vec a(n);
+    for(ll i=0; i<n; i++) {
+        a[i] = i+1;
     }
-    else{
-        if(n==1){cout << "-1";}
+    
+    
+    if(k%2){
+        cout << "No";
+        return;
+    }
+    ll ok=0;
+    for(ll i=1; i<=n; i++){
+        ok += abs((n-i+1) - i);
+    }
+    if(k > ok){
+        cout << "No";
+        return;
+    }
+    cout << "Yes\n";
+    ll cnt=0;
+
+    while(k > 0){
+        ll x = 2*abs(a[cnt] - a[n-cnt-1]);
+
+
+        if(k > x){
+            swap(a[cnt], a[n-cnt-1]);
+            k -= x;
+        }
         else{
-            
-            for(int i=0;i<n-1;i++){
-                cout<< "1";
-            }
-            cout << "0";
+            swap(a[cnt], a[cnt+k/2]);
+            k=0;
         }
+        cnt++;
     }
+
+    for(int i=0;i<n;i++) {
+        cout << a[i] << " ";
+    }
+    
 }
 
-int main(){
+
+int32_t main(){
     FAST
-    solve();
+    ll t; cin >> t;
+    while(t--){
+        solve();
+        cout <<"\n";
+    }
     return 0;
 }                          
